@@ -17,10 +17,11 @@ import {
 } from '@chakra-ui/react';
 
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import { FaRegHeart } from 'react-icons/fa'
-import { AiOutlineMessage } from 'react-icons/ai'
-import { BsBell } from 'react-icons/bs'
-import { AiOutlinePlusSquare, AiFillHeart } from 'react-icons/ai'
+import { FaRegHeart, FaRegUser, FaListUl } from 'react-icons/fa';
+import { AiOutlineMessage, AiOutlineQuestionCircle, AiOutlineWallet, AiOutlineShop, AiOutlinePlusSquare } from 'react-icons/ai';
+import { BsBell } from 'react-icons/bs';
+import { GoPackage } from 'react-icons/go';
+import { RiLogoutBoxRLine } from 'react-icons/ri';
 
 export function NavBar() {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -39,9 +40,13 @@ export function NavBar() {
           </Box>
           {/*  */}
           <Flex alignItems={'center'}>
-            <Stack direction={'row'} spacing={0}>
+            <Stack direction={'row'} spacing={2}>
               <Button onClick={handleFavoriteClick}>
-                {isFavorite ? <Icon boxSize='5' as={AiFillHeart} color="red" /> : <Icon boxSize='5' as={FaRegHeart} />}
+                {isFavorite ? (
+                  <Icon boxSize='5' as={FaRegHeart} color="red" />
+                ) : (
+                  <Icon boxSize='5' as={FaRegHeart} />
+                )}
               </Button>
               {/*  */}
               <Button>
@@ -63,25 +68,49 @@ export function NavBar() {
                     size={'sm'}
                     src={'https://avatars.dicebear.com/api/male/username.svg'}
                   />
-                  <ChevronDownIcon boxSize='6'></ChevronDownIcon>
+                  <ChevronDownIcon boxSize='6' />
                 </MenuButton>
                 <MenuList alignItems={'center'}>
-                  <br />
-                  <Center>
-                    <Avatar
-                      size={'2xl'}
-                      src={'https://avatars.dicebear.com/api/male/username.svg'}
-                    />
-                  </Center>
-                  <br />
-                  <Center>
-                    <p>Username</p>
-                  </Center>
-                  <br />
-                  <MenuDivider />
-                  <MenuItem>Your Servers</MenuItem>
-                  <MenuItem>Account Settings</MenuItem>
-                  <MenuItem>Logout</MenuItem>
+                  <MenuItem>
+                    <Icon mr={2} boxSize='4' as={FaRegUser} />
+                    Mi cuenta
+                  </MenuItem>
+                  <MenuItem>
+                    <Icon mr={2} boxSize='4' as={FaListUl} />
+                    Mis anuncios
+                  </MenuItem>
+                  <MenuItem>
+                    <Icon mr={2} boxSize='4' as={FaRegHeart} />
+                    Mis favoritos
+                  </MenuItem>
+                  <MenuItem>
+                    <Icon mr={2} boxSize='4' as={AiOutlineMessage} />
+                    Mis mensajes
+                  </MenuItem>
+                  <MenuItem>
+                    <Icon mr={2} boxSize='4' as={BsBell} />
+                    Mis alertas
+                  </MenuItem>
+                  <MenuItem>
+                    <Icon mr={2} boxSize='4' as={GoPackage} />
+                    Mis envíos
+                  </MenuItem>
+                  <MenuItem>
+                    <Icon mr={2} boxSize='4' as={AiOutlineWallet} />
+                    Mi monedero
+                  </MenuItem>
+                  <MenuItem>
+                    <Icon mr={2} boxSize='4' as={AiOutlineShop} />
+                    ¿Eres profesional?
+                  </MenuItem>
+                  <MenuItem>
+                    <Icon mr={2} boxSize='4' as={AiOutlineQuestionCircle} />
+                    Ayuda
+                  </MenuItem>
+                  <MenuItem>
+                    <Icon mr={2} boxSize='4' as={RiLogoutBoxRLine} />
+                    Cerrar sesión
+                  </MenuItem>
                 </MenuList>
               </Menu>
             </Stack>
