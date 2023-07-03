@@ -2,30 +2,44 @@ import React from 'react';
 import {
   Badge,
   Button,
-  Center,
   Flex,
-  Heading,
+  Box,
   Image,
-  Link,
+  Center,
   Stack,
+  Heading,
   Text,
   useColorModeValue,
-  Grid,
+  Link,
 } from '@chakra-ui/react';
-import { HiOutlineLocationMarker } from "react-icons/hi";
+import { useState } from 'react';
+import { HiOutlineLocationMarker } from 'react-icons/hi';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
 export function Anuncio() {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleFavoriteClick = () => {
+    setIsFavorite(!isFavorite);
+  };
+
   return (
-    <Center py={6}>
-      <Stack
+    <Center pt={6}>
+      <Link
+        as={Stack}
         borderWidth="1px"
         borderRadius="lg"
         w={{ lg: '100%', md: '540px' }}
         height={{ sm: '476px', md: '16rem' }}
         direction={{ base: 'column', md: 'row' }}
         bg={useColorModeValue('white', 'gray.900')}
-        boxShadow={'2xl'}
+        boxShadow="md"
         padding={0}
+        to="/anuncio"
+        _hover={{
+            textDecoration: 'none',
+            boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.2)' 
+          }}
       >
         <Flex flex={1}>
           <Image
@@ -37,13 +51,22 @@ export function Anuncio() {
         <Stack
           flex={2}
           flexDirection="column"
-          justifyContent="center"
+          justifyContent="top"
           alignItems="left"
-          p={4}
+          p={4} 
         >
-          <Heading fontWeight={400} fontSize={'md'} fontFamily={'body'}>
-            SEMBRADOR KVERNELAND OPTIMA HD-7
-          </Heading>
+          <Flex justifyContent="space-between" alignItems="center" mb={2}>
+            <Heading fontWeight={400} fontSize={'md'} fontFamily={'body'}>
+              SEMBRADOR KVERNELAND OPTIMA HD-7
+            </Heading>
+            <Button
+              variant="ghost"
+              size="xl"
+              onClick={handleFavoriteClick}
+            >
+              {isFavorite ? <AiFillHeart color="green" /> : <AiOutlineHeart />}
+            </Button>
+          </Flex>
           <Heading fontSize={'xl'} fontFamily={'body'}>
             19.000 €
           </Heading>
@@ -53,7 +76,10 @@ export function Anuncio() {
               Cuenca (Cuenca)
             </Text>
           </Flex>
-          <Text textAlign={'left'} color={useColorModeValue('gray.700', 'gray.400')}>
+          <Text
+            textAlign={'left'}
+            color={useColorModeValue('gray.700', 'gray.400')}
+          >
             SEMBRADORA KV MODELO OPTIMA HD-7 CUERPOS
             SIEMBRA DE DISCO
             EXTENSIBLE E HIDRAULICA Y
@@ -61,7 +87,7 @@ export function Anuncio() {
             ** NUEVA** PRECIO MAS 21%
           </Text>
         </Stack>
-      </Stack>
+      </Link>
     </Center>
   );
 }
