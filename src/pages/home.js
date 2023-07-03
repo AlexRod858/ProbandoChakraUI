@@ -3,26 +3,15 @@ import {
   Container,
   Heading,
   Text,
-  InputGroup,
-  InputLeftElement,
-  Input,
   Box,
-  Button,
-  Flex,
-  Badge,
-  useBreakpointValue,
-  HStack,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
 } from '@chakra-ui/react';
 import { NavBar } from '../components/navbar';
-import { Search2Icon, ChevronDownIcon } from '@chakra-ui/icons';
-import { VscSettings } from 'react-icons/vsc';
 import { Anuncio } from '../components/anuncio';
+import { Anuncio2 } from '../components/anuncio2';
+import { Anuncio3 } from '../components/anuncio3';
 import { Buscador } from '../components/buscador';
 import { Orden } from '../components/orden';
+import { ChevronDownIcon } from '@chakra-ui/icons';
 
 function Home() {
 
@@ -40,6 +29,8 @@ function Home() {
         <hr />
         <Orden/>
         <Anuncio />
+        <Anuncio2 />
+        <Anuncio3 />
       </Container>
     </div>
   );
