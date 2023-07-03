@@ -17,7 +17,7 @@ import {
 } from '@chakra-ui/react';
 
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import { FaRegHeart, FaRegUser, FaListUl } from 'react-icons/fa';
+import { FaRegHeart, FaRegUser, FaListUl, FaHeart } from 'react-icons/fa';
 import { AiOutlineMessage, AiOutlineQuestionCircle, AiOutlineWallet, AiOutlineShop, AiOutlinePlusSquare } from 'react-icons/ai';
 import { BsBell } from 'react-icons/bs';
 import { GoPackage } from 'react-icons/go';
@@ -43,7 +43,7 @@ export function NavBar() {
             <Stack direction={'row'} spacing={2}>
               <Button onClick={handleFavoriteClick}>
                 {isFavorite ? (
-                  <Icon boxSize='5' as={FaRegHeart} color="red" />
+                  <Icon boxSize='5' as={FaHeart} color="red" />
                 ) : (
                   <Icon boxSize='5' as={FaRegHeart} />
                 )}
